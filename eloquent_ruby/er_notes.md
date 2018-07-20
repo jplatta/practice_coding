@@ -6,11 +6,11 @@
 * Good code speaks for itself. Go light on the comments
 * Use camel case for classes.
 * Use snakes for everything else.
-* If defining a method with no parameters, then leave teh parentheses off.
+* If defining a method with no parameters, then leave the parentheses off.
 * Don't use parentheses for control statements.
 * If your block consists of a single statement, then use a single line of code, i.e. braces.
-* End yes/no or true/false methods with a question mark
-* End method names with an exclamation point if they do something unexpected or dangers, e.g. change a class in place. 
+* End yes/no or true/false methods with a question mark.
+* End method names with an exclamation point if they do something unexpected or dangerous, e.g. change a class in place. 
 
 ## Chapter 2: Choose the Right Control Structure 
 
