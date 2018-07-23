@@ -27,3 +27,6 @@
 ## Chapter 8: Embrace Dynamic Typing 
 
 ## Chapter 9: Write Specs!
+
+## Chapter 17: Use Blocks to Iterate
+
