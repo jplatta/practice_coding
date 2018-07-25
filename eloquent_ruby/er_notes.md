@@ -14,6 +14,19 @@
 
 ## Chapter 2: Choose the Right Control Structure 
 
+* Use "unless" instead of "!" 
+* An until loop keeps going until its conditional part becomes true 
+* Instead of "while !condition" use "until condition"
+* Use the modifier version of if, unless, while, and until if the code an be written on one line
+* Use each instead of for loops
+* Case statements use the === operator 
+  * Use case statements to detect a regular expression match 
+* Ruby treats only `false` and `nil` as false and everything else as true
+  * Avoid testing for truth by testing for specific values
+* If you are looking for `nil` (e.g. the end of a list) and there is a possibility of `false` showing up, look for `nil` explicitly.
+* Not sure if you need to initialize a variable then use 
+```@first_name ||= ''``` which is the same as ```@first_name = '' unless @first_name``` which is also the same as ```@first_name = @first_name || ''```
+
 ## Chapter 3: Take Advantage of Ruby's Smart Collections 
 
 ## Chapter 4: Take Advantage of Ruby's Smart Strings
