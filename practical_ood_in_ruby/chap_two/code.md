@@ -1,7 +1,5 @@
-## Code Evolution
-* Gear is neither usable nor exemplary because it has multiple responsibilites. Moreover, if the Gear class acquired dependencies it would also be neither transparent nor reasonable:
 ```ruby
-### Create a simple gear class
+### Create a simple gear class for the ruby script with gear data
 class Gear
   attr_reader :chainring, :cog
   

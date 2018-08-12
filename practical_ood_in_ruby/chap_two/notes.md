@@ -19,8 +19,9 @@
     * Try to describe the class in one sentence. If you need to use conjunctions, then the class likely doesn't have a single responsibility.
 * In general, when the future cost of doing nothing is the same as the curent cost, then postpone the decision.
 * Behavior is captured in methods and evoked by sending messages.
+* The initial implementation of the Gear class is neither usable nor exemplary because it has multiple responsibilites. Moreover, if the Gear class acquired dependencies it would also be neither transparent nor reasonable:
 * **Rules of thumb** for writing code that embraces change: 
-    * *Hide instance variables*, i.e. wrap ivars in accessor methods. 
+    * *Hide instance variables*, i.e. wrap i-vars in accessor methods. 
         * If @cog is referred to a bunch of times and changes, then code will need to be refactored in many places. But if the cog method is the only thing that understand what cog means, then the cog method is the only thing that needs refactoring.
         ```ruby
         # BAD
