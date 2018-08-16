@@ -12,14 +12,15 @@
     * **E**xemplary: The code itself should encourage those who chnge it to perpetuate these qualities.
 * Applications that are easy to change consist of classes that are easy to reuse.
     * A resuable class is *(1)* a pluggable unit of code of *(2)* well-defined behavior that has *(3)* few entanglements.
-    * A class with more than one responsibility to difficult to reuse
+    * A class with more than one responsibility is difficult to reuse
 * Determing if a class has a single responsibility (SRP):
     * Rephrase each method into a question about the class. Does the question make sense?
         * *Mr. Class, what is your 'insert_method_name_here'?*
+        * Miss. WheelClass, what is your diameter?
     * Try to describe the class in one sentence. If you need to use conjunctions, then the class likely doesn't have a single responsibility.
 * In general, when the future cost of doing nothing is the same as the curent cost, then postpone the decision.
 * Behavior is captured in methods and evoked by sending messages.
-* The initial implementation of the Gear class is neither usable nor exemplary because it has multiple responsibilites. Moreover, if the Gear class acquired dependencies it would also be neither transparent nor reasonable:
+* The initial implementation of the Gear class is neither usable nor exemplary because it has multiple responsibilites. Moreover, if the Gear class acquired dependencies it would also be neither transparent nor reasonable because it would conceal these dependencies.
 * **Rules of thumb** for writing code that embraces change: 
     * *Hide instance variables*, i.e. wrap i-vars in accessor methods. 
         * If @cog is referred to a bunch of times and changes, then code will need to be refactored in many places. But if the cog method is the only thing that understand what cog means, then the cog method is the only thing that needs refactoring.

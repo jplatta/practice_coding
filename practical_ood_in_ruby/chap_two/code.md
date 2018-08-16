@@ -1,5 +1,9 @@
-```ruby
+# Designing Classes with a Single Responsibility
+
+## Chapter 2 Code
+
 ### Create a simple gear class for the ruby script with gear data
+```ruby
 class Gear
   attr_reader :chainring, :cog
   
@@ -12,8 +16,10 @@ class Gear
     chainring / cog.to_f
   end
 end
+```
 
 ### Add method for gear inches for comparing bicycles
+```ruby
 class Gear
   attr_reader :chainring, :cog, :rim, :tire
 
@@ -32,8 +38,10 @@ class Gear
     ratio * (rim  + (tire * 2))
   end
 end
+```
 
 ### Isolate responsibilities of methods: Add a diameter method
+```ruby
 class Gear
   attr_reader :chainring, :cog, :rim, :tire
 
@@ -56,8 +64,10 @@ class Gear
     rim + (tire * 2)
   end
 end
+```
 
 ### Isolate responsibilities of classes: Move the diameter method into a wheel Struct
+```ruby
 class Gear
   attr_reader :chainring, :cog, :wheel
 
@@ -81,8 +91,10 @@ class Gear
     end
   end
 end
+```
 
 ### Create a Wheel class and include a method for wheel circumference
+```ruby
 class Gear
   attr_reader :chainring, :cog, :wheel
 
@@ -117,5 +129,4 @@ class Wheel
     diameter * Math::PI
   end
 end
-
 ```
