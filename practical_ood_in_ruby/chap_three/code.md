@@ -2,7 +2,7 @@
 
 ## Chapter 3 Code
 
-### Code from chapter 2. Gear class is slighlty modified
+### Gear class is slighlty modified from chapter 2
 
 #### This code is problematic because 
 #### 1. Gear expects a class named Wheel to exist
