@@ -94,7 +94,7 @@ class MountainBike < Bicycle
 end
 ```
 
-####The next example starts to correclty apply inheritance. Begin by renaming the Bicycle class to the RoadBike class. 
+#### The next example starts to correclty apply inheritance. Begin by renaming the Bicycle class to the RoadBike class. 
 ```ruby
 class Bicycle
 end
@@ -166,7 +166,7 @@ end
 ```
 #### Next setup defaults by wrapping the values in methods. The `default_chain` is common to both subclasses and so is implemented in the Bicycle class. Use the template method and send a message to the subclass from the superclass for the `default_tire_size`. 
 
-####Following the _implement every template method_ rule of thumb, add `default_tire_size` to the Bicycle class and raise `NotImplementedError`, e.g. if someone implements RecumbentBike, that person will know to add `default_tire_size`.
+#### Following the _implement every template method_ rule of thumb, add `default_tire_size` to the Bicycle class and raise `NotImplementedError`, e.g. if someone implements RecumbentBike, that person will know to add `default_tire_size`.
 ```ruby
 class Bicycle
   attr_reader :size, :chain, :tire_size # promoted from Roadbike
