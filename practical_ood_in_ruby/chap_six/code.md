@@ -126,45 +126,10 @@ class RoadBike < Bicycle
   end
 end
 ```
-####Although the RoadBike class works, the MountainBike class is broken. Move behavior common to MountainBike and RoadBike into the Bicycle class. Start by promoting the size attribute to Bicycle. 
-```ruby
-class Bicycle
-  attr_reader :size # promoted from Roadbike
-
-  def initialize(args={})
-    @size = args[:size]
-  end
-end
-
-class MountainBike < Bicycle
-end
-
-class RoadBike < Bicycle
-  attr_reader :style, :tape_color, :front_shock, :rear_shock
-
-  def initialize(args)
-    @style       = args[:style]
-    @tape_color  = args[:tape_color]
-    @front_shock = args[:front_shock]
-    @rear_shock  = args[:rear_shock]
-    super(args)
-  end
-
-  def spares
-    if style == :road
-      { chain:      '10-speed',
-        tire_size:  '23', 
-        tape_color: tape_color }
-    else
-      { chain:      '10-speed',
-        tire_size:  '2.1', 
-        rear_shock: rear_shock }
-    end
-  end
-end
-```
-
-#### Next promote `chain` and `tire_size`. (try to consolidate this code with above)
+#### Although the RoadBike class works, the MountainBike class is broken. 
+#### Move behavior common to MountainBike and RoadBike into the Bicycle class. Start by promoting the `size`, `chain`, and `tire_size` to Bicycle.
+#### Implement `spares` in MountainBike
+#### Remove `style` from RoadBike which is no longer needed because of the class hierarchy.
 ```ruby
 class Bicycle
   attr_reader :size, :chain, :tire_size # promoted from Roadbike
@@ -199,7 +164,9 @@ class RoadBike < Bicycle
   end
 end
 ```
-#### Next setup defaults by wrapping the values in methods. The `default_chain` is common to both subclasses and so is implemented in the Bicycle class. Use the template method and send a message to the subclass from the superclass for the `default_tire_size`. Following the _implement every template method_ rule of thumb, add `default_tire_size` to the Bicycle class and raise `NotImplementedError`, e.g. if someone implements RecumbentBike, that person will know to add `default_tire_size`.
+#### Next setup defaults by wrapping the values in methods. The `default_chain` is common to both subclasses and so is implemented in the Bicycle class. Use the template method and send a message to the subclass from the superclass for the `default_tire_size`. 
+
+####Following the _implement every template method_ rule of thumb, add `default_tire_size` to the Bicycle class and raise `NotImplementedError`, e.g. if someone implements RecumbentBike, that person will know to add `default_tire_size`.
 ```ruby
 class Bicycle
   attr_reader :size, :chain, :tire_size # promoted from Roadbike
@@ -257,6 +224,7 @@ class Recumbentbike < Bicycle
 end
 ```
 #### Promoting spares to Bicycle is difficult because it currently contains general and specialized values.
+
 #### Add a `spares` method to Bicycle, update RoadBike `spares` to call super, and move remaining code specific to MountainBike out of RoadBike.
 ```ruby
 class Bicycle
@@ -317,7 +285,7 @@ class RoadBike < Bicycle
   end
 end
 ```
-#### MountainBike and RoadBike currentky know how to interact with superclass which is indicated by the sends to `super` in `initialize` and `spares`. To further decouple the MountainBike and RoadBike from Bicycle, add the `post_initialize` and `local_spares` hook messages.
+#### MountainBike and RoadBike currently know how to interact with their superclass which is indicated by the sends to `super` in `initialize` and `spares`. To further decouple the MountainBike and RoadBike from Bicycle, i.e. reduce the knowledge of Bicycle that MountainBike and RoadBike depend on, add the `post_initialize` and `local_spares` hook messages.
 ```ruby
 class Bicycle
   attr_reader :size, :chain, :tire_size # promoted from Roadbike

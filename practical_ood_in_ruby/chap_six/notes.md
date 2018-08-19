@@ -1,7 +1,7 @@
 # Chap Six: Acquiring Behavior Through Inheritance
 
-* Classical inheritance is essentially a mechanism for automatic message delegation.
-* Antipattern: using an `if` statement to check an attribute that holds the category of self to determine what message to send to self, e.g. the spares method in chapter six
+* **Classical inheritance** is essentially a mechanism for automatic message delegation.
+* _Antipattern_ Using an `if` statement to check an attribute that holds the category of self to determine what message to send to self, e.g. the spares method in chapter six
     * This antipattern will sometimes indicate a missing subtype.
 * The problem inheritance solves: that of highly related types that share common behavior but differ along some dimension.
 * **Inheritance** is a way of defining two objects as having a relationship such that when the first receives a message that it does not understand, it automatically forwards, or delegates, the mssage to the second. 
@@ -18,7 +18,7 @@
     * Code examples: `default_tire_size`
 * Decouple subclasses from superclasses using **hook messages**
     * **Hook messages** are messages sent by superclasses to subclasses so that subclasses can contribute information by implementing matching methods.
-    * Code examples" `post_initialize` and `local_spares`
-* _Rule of Thumb_ Don't create a class hierarchy if you expect less than three subclass types.
+    * Code examples: `post_initialize` and `local_spares`
+* _Rule of Thumb_ Don't create a class hierarchy if you expect to have less than three subclasses.
 
 
