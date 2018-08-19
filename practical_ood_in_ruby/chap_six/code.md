@@ -2,7 +2,7 @@
 
 ## Chapter 6 Code
 
-#### Here's initial Bike class
+#### Here's the initial Bike class.
 ```ruby
 class Bicycle 
   attr_reader :size, :tape_color
@@ -21,7 +21,9 @@ end
 ```
 #### But suppose you now need to account for road bikes and mountain bikes.
 
-#### Below is an antipattern, i.e. what you don't want to do in this case. This version of Bicycle has more than one responsibility, contains things that might change for different reasons, and cannot be reused.
+#### Below is an antipattern, i.e. what you don't want to do in this case. 
+
+#### This version of Bicycle has more than one responsibility, contains things that might change for different reasons, and cannot be reused.
 ```ruby
 class Bicycle 
   attr_reader :style, :size, :tape_color, :front_shock, :rear_shock
@@ -93,7 +95,6 @@ class MountainBike < Bicycle
   end
 end
 ```
-
 #### The next example starts to correclty apply inheritance. Begin by renaming the Bicycle class to the RoadBike class. 
 ```ruby
 class Bicycle
@@ -128,7 +129,7 @@ end
 ```
 #### Although the RoadBike class works, the MountainBike class is broken. 
 #### Move behavior common to MountainBike and RoadBike into the Bicycle class. Start by promoting the `size`, `chain`, and `tire_size` to Bicycle.
-#### Implement `spares` in MountainBike
+#### Implement `spares` in MountainBike.
 #### Remove `style` from RoadBike which is no longer needed because of the class hierarchy.
 ```ruby
 class Bicycle
@@ -285,7 +286,9 @@ class RoadBike < Bicycle
   end
 end
 ```
-#### MountainBike and RoadBike currently know how to interact with their superclass which is indicated by the sends to `super` in `initialize` and `spares`. To further decouple the MountainBike and RoadBike from Bicycle, i.e. reduce the knowledge of Bicycle that MountainBike and RoadBike depend on, add the `post_initialize` and `local_spares` hook messages.
+#### MountainBike and RoadBike currently know how to interact with their superclass which is indicated by the sends to `super` in `initialize` and `spares`. 
+
+#### To further decouple the MountainBike and RoadBike from Bicycle, i.e. reduce the knowledge of Bicycle that MountainBike and RoadBike depend on, add the `post_initialize` and `local_spares` hook messages.
 ```ruby
 class Bicycle
   attr_reader :size, :chain, :tire_size # promoted from Roadbike
