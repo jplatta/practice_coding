@@ -8,16 +8,21 @@
 * **Dependency Direction**
 * **Dependency Injection**
 * **DRY**
+* **Duck Type**
 * **Factories**
+* **Interface**
 * **Law of Demeter**
 * **Messages**
 * **Object** 
 * **Object Coupling**
 * **Object Oriented Language** [chapter one](https://github.com/jplatta/practice_coding/blob/master/practical_ood_in_ruby/chap_one/notes.md)
 * **Procedural Language** [chapter one](https://github.com/jplatta/practice_coding/blob/master/practical_ood_in_ruby/chap_one/notes.md)
+* **Public Interface**
 * **Responsibility Driven Design** A class has responsibilities that fulfill its purpose.
+* **Sequence Diagram**
 * **Single Responsibility Principle (SRP)** Requires that a class be cohesive, i.e. that everything the class does be related to its purpose.
 * **SOLID** [chapter one](https://github.com/jplatta/practice_coding/blob/master/practical_ood_in_ruby/chap_one/notes.md)
 * **Technicial Debt** [chapter one](https://github.com/jplatta/practice_coding/blob/master/practical_ood_in_ruby/chap_one/notes.md)
-
+* **Train Wreck**
+* **Unified Modeling Diagram**
 

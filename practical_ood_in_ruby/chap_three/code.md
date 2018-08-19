@@ -8,7 +8,7 @@
 #### 1. Gear expects a class named Wheel to exist
 #### 2. Gear expects Wheel to respond to diameter
 #### 3. Gear knows a new Wheel requires rim and tire
-#### 4. Gear know sthe first argument for a new Wheel should be rim and the second tire
+#### 4. Gear knows the first argument for a new Wheel should be rim and the second tire
 ```ruby
 class Gear
   attr_reader :chainring, :cog, :rim, :tire
