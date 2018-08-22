@@ -15,8 +15,9 @@
 * **Hook Messages** [chapter six](https://github.com/jplatta/practice_coding/blob/master/practical_ood_in_ruby/chap_six/notes.md)
 * **Interface** [chapter four](https://github.com/jplatta/practice_coding/blob/master/practical_ood_in_ruby/chap_four/notes.md)
 * **Law of Demeter** [chapter four](https://github.com/jplatta/practice_coding/blob/master/practical_ood_in_ruby/chap_five/notes.md)
-* **Liskov Substitution**
+* **Liskov Substitution** [chapter seven](https://github.com/jplatta/practice_coding/blob/master/practical_ood_in_ruby/chap_seven/notes.md)
 * **Messages**
+* **Module** [chapter seven](https://github.com/jplatta/practice_coding/blob/master/practical_ood_in_ruby/chap_seven/notes.md)
 * **Monkey Patching** Editing Ruby base classes
 * **Object** 
 * **Object Coupling**
