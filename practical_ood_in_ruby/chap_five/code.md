@@ -2,7 +2,7 @@
 
 ## Chapter 5 Code 
 
-#### The code below is dependent-laden. Trip knows about the namaes of Mechanic, TripCoordiantor, and Drivers class, Trip knows what messages these other classes accept. Trip knows what arguments these messages require.
+#### The code below is dependent-laden. Trip knows about the names of Mechanic, TripCoordiantor, and Driver classes. Trip knows what messages these other classes accept. Trip knows what arguments these messages require.
 
 ```ruby
 class Trip 
@@ -24,7 +24,7 @@ class Trip
   end
 end
 
-# if pass an instance of the Mechanic class to the Trip.prepare method, it works
+# if passed an instance of the Mechanic class to the Trip.prepare method, it works
 class Mechanic
   def prepare_bicycles(bicycles)
     bicycles.each { |bicycle| prepare_bicycle(bicycle) }
@@ -48,7 +48,7 @@ class Driver
 end
 ```
 
-####To remove these dependencies, implement the Preparer interface or duck type. Preparers are objects that implement the prepare_trip method. 
+#### To remove these dependencies, implement the Preparer interface or duck type. Preparers are objects that implement the prepare_trip method. 
 
 ```ruby
 class Trip 
@@ -60,7 +60,7 @@ class Trip
   end
 end
 
-# if pass an instance of the Mechanic class to the Trip.prepare method, it works
+# if passed an instance of the Mechanic class to the Trip.prepare method, it works
 class Mechanic
   def prepare_trip(trip)
     trip.bicycles.each do |bicycle|

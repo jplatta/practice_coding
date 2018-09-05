@@ -21,3 +21,12 @@ moon_landing.wday
 ###returns 
 0
 ```
+
+### There is also a helpful `Date` library
+```ruby
+require 'date'
+
+Date::DAYNAMES
+### returns
+["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+```

@@ -66,7 +66,7 @@
 #### `sort`, `reverse`, `push`, `pop`, `join`
 
 Notes
-* `push` returns the lenght of the new array.
+* `push` returns the length of the new array.
 * `<<` is called the "shovel operator".
 
 ### Looping through an array
