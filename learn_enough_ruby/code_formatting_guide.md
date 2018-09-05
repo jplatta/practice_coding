@@ -1,4 +1,4 @@
-# Formatting Ruby Code
+# Guidelines for Formatting Ruby Code
 
 1. Indent two spaces for nested code
 2. Add new lines to indicate logical structure

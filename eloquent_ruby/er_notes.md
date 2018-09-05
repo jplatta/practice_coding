@@ -16,7 +16,7 @@
 
 * Use `unless` instead of `!` 
 * An `until` loop keeps going until its conditional part becomes true 
-* Instead of `**while !condition` use `until condition`
+* Instead of `while !condition` use `until condition`
 * Use the modifier versions of `if`, `unless`, `while`, and `until` if the code can be written on one line.
 * Use `each` instead of `for` loops.
 * Case statements use the `===` operator. 

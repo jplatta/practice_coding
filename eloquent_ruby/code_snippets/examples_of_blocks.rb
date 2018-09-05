@@ -8,5 +8,4 @@ module Examples
       puts "Hello from inside the block"
     end    
   end
-  
-endls
+end

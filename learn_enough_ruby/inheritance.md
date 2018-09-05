@@ -1,4 +1,4 @@
-# Inheritance
+# Somes Notes on Inheritance
 
 ```ruby
 s = String.new("foobar")
