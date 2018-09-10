@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'jwplatta_palindrome'
+require 'open-uri'
+
+lines = open('https://cdn.learnenough.com/phrases.txt').readlines
+
+lines.each { |line| puts line if line.palindrome? }

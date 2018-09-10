@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'jwplatta_palindrome'
+
+## Example 1
+# text = File.read("phrases.txt")
+# text.split("\n").each do |line|
+  # puts "palindrome detected: #{line}" if line.palindrome?
+# end
+
+## Example 2
+# lines = File.readlines('phrases.txt')
+
+# lines.each do |line|
+#   puts "palindrome detected: #{line}" if line.palindrome?
+# end
+
+## Example 3
+lines = File.readlines('phrases.txt')
+
+#palindromes = lines.select { |line| line.palindrome? }
+palindromes = lines.select(&:palindrome?)
+
+File.write('palindromes.txt', palindromes.join)
