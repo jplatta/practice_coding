@@ -4,6 +4,7 @@ GEM
     ansi (1.5.0)
     builder (3.2.3)
     ffi (1.9.25)
+    jwplatta_palindrome (0.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -42,6 +43,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jwplatta_palindrome
   minitest (= 5.11.3)
   minitest-reporters (= 1.2.0)
   nokogiri (= 1.8.4)

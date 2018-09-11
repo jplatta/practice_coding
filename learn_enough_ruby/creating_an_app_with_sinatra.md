@@ -130,7 +130,7 @@ end
 
 19. Run the tests: `$ bundle exec rake test`
 
-20. Add functionality to `test_helper.rb` to test for `html` content in your views:
+20. Add functionality using the `nokogiri` gem to `test_helper.rb` to test for `html` content in your views:
 ```ruby
 ### test/test_helper.rb
 ENV['RACK_ENV'] = 'test'
@@ -166,18 +166,182 @@ class PalindromeAppTest < Minitest::Test
     assert doc(last_response).at_css('h1')
   end
   
-  def test_about
-    get '/about'
-    assert last_response.ok?
-    assert doc(last_response).at_css('h1')
+  # ...other tests
+end
+```
+
+22. Create a layout to remove redundant `html` code from the views: `$ touch views/layout.erb`. Layout needs to have include `<%= yield %>`
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Learn Enough Ruby Sample App | <%= @title %></title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    </head>
+    <body>
+        <a href="/" class="header-logo">
+            <img src="/images/logo_b.png" alt="Learn Enough logo">
+        </a>
+        <div class="container">
+            <%= erb :navigation %>
+            <div class="content">
+                <%= yield %>
+            </div>
+        </div>
+    </body>
+</html>
+```
+
+23. Pass content to a view using an i-var, e.g. to create dynamic page titles:
+```ruby
+get '/' do
+  @title = 'Home'
+  erb :index
+end
+```
+
+```html
+<title><%= @title %></title>
+```
+
+24. Create a partial for the links header: `$ touch views/navigation.erb` and include it in the `layout.erb`
+#### including the navigation partial in the layout
+```html
+<%= erb :navigation %>
+```
+
+#### Navigation
+```html
+<header class="header">
+    <nav>
+        <ul class="header-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/palindrome">Is It a Palindrome?</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+</header>
+```
+
+25. Require palindrome gem in app.
+#### Update Gemfile
+```ruby
+source 'https://rubygems.org'
+
+gem 'sinatra', '2.0.3'
+gem 'rerun', '0.13.0'
+gem 'jwplatta_palindrome'
+
+group :test do
+  gem 'minitest', '5.11.3'
+  gem 'minitest-reporters', '1.2.0'
+  gem 'rack-test', '1.0.0'
+  gem 'rake', '12.3.1'
+  gem 'nokogiri', '1.8.4'
+end
+```
+
+#### use gem in app.rb
+```ruby
+# ...other requires...
+require 'jwplatta_palindrome'
+
+# ...rest of app.rb code...
+```
+
+26. Createa a form for submitting phrases to the palindrome checker:
+#### The form in palindrome.erb
+```html
+<h1>Palindrome Detector</h1>
+
+<form id="palindrome_tester" action="/check" method="post">
+  <textarea name="phrase" rows="10" cols="60"></textarea>
+  <br>
+  <button class="form-submit" type="submit">Is it a palindrome?</button>
+</form>
+```
+
+27. Create the `result.erb` to return the result: 
+```html
+<h1>Palindrome Result</h1>
+<% if @phrase.palindrome? %>
+    <div class="result result-success">
+        <p>"<%= @phrase %>" is a palindrome!</p>
+    </div>
+<% else %>
+    <div class="result result-fail">
+        <p>"<%= @phrase %>" is not a palindrome.</p>
+    </div>
+<% end %>
+```
+
+28. Create a `post` request that checks if a phrase is a palindrome.
+```ruby
+require 'sinatra'
+require 'rerun'
+require 'jwplatta_palindrome'
+
+# ...other routes...
+
+post '/check' do
+  @phrase = params[:phrase]
+  erb :result
+end
+
+```
+
+#### You can test the params using:
+```ruby
+# ...rest of app.rb code
+
+post '/check' do
+  raise params.inspect
+end
+```
+
+29. Add some tests for the palindrome detector: `$ touch test/palindrome_test.rb`
+
+30. Add the tests:
+```ruby
+require_relative 'test_helper'
+
+class PalindromeAppTest < MiniTest::Test
+  include Rack::Test::Methods
+
+  def app
+    Sinatra::Application
   end
 
-  def test_palindrome_page
+  def test_form_presence
     get '/palindrome'
-    assert last_response.ok?
-    assert doc(last_response).at_css('h1')
+    assert doc(last_response).at_css('form')
+  end
+
+  def test_palindrome
+    post '/check', phrase: 'racecar'
+    assert_includes doc(last_response).at_css('p').text, "is a palindrome"
+  end
+
+  def test_not_palindrome
+    post '/check', phrase: 'is not a palindrome'
+    assert_includes doc(last_response).at_css('p').text, "is not a palindrome"
+    assert doc(last_response).at_css('form')
   end
 end
 ```
 
-22. Create a layout to remove redundant `html` code from the views.
+31. Refactor form into `views/palindrome_form.erb`
+```html
+<form id="palindrome_tester" action="/check" method="post">
+  <textarea name="phrase" rows="10" cols="60"></textarea>
+  <br>
+  <button class="form-submit" type="submit">Is it a palindrome?</button>
+</form>
+```
+
+#### adding the form as a partial
+```
+<%= erb :palindrome_form %>
+```
