@@ -233,7 +233,7 @@ end
 require 'forwardable'
 class Parts
   extend Forwardable
-  def delegators :@parts, :size, :each
+  def_delegators :@parts, :size, :each
   include Enumerable
 
   def initialize(parts)
@@ -241,7 +241,7 @@ class Parts
   end
 
   def spares
-  select { |part| part.needs_spare }
+    select { |part| part.needs_spare }
   end
 end
 

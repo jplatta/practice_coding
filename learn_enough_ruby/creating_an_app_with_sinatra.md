@@ -81,7 +81,7 @@ Minitest::Reporters.use!
 
 16. Add a Rake config file for production as well: `$ touch config.ru`
 
-16. Require the aoo for production in the `config.ru`:
+16. Require the app for production in the `config.ru`:
 ```ruby
 require './app'
 

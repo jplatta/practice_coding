@@ -1,0 +1,9 @@
+#!/usr/local/bin/node
+
+let lieblingswort = "ausgezeichnet";
+
+console.log(`Meine Lieblingswort ist ${lieblingswort}`);
+
+for(let i = 0; i < lieblingswort.length; i++) {
+    console.log(lieblingswort.charAt(i));
+}
