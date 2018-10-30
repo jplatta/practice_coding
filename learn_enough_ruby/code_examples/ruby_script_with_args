@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+puts "Executing ruby script with args..."
+
+ARGV.each { |arg| puts arg.to_s }

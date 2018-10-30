@@ -18,7 +18,7 @@
         * *Mr. Class, what is your 'insert_method_name_here'?*
         * Miss. WheelClass, what is your diameter?
     * Try to describe the class in one sentence. If you need to use conjunctions, then the class likely doesn't have a single responsibility.
-* In general, when the future cost of doing nothing is the same as the curent cost, then postpone the decision.
+* In general, when the future cost of doing nothing is the same as the current cost, then postpone the decision.
 * Behavior is captured in methods and evoked by sending messages.
 * The initial implementation of the Gear class is neither usable nor exemplary because it has multiple responsibilites. Moreover, if the Gear class acquired dependencies it would also be neither transparent nor reasonable because it would conceal these dependencies.
 * **Rules of thumb** for writing code that embraces change: 

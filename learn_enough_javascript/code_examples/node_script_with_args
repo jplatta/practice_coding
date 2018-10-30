@@ -1,0 +1,9 @@
+#!/usr/local/bin/node
+
+console.log("Executing node script with args...");
+
+console.log(`You are passing ${process.argv.length} arguments to your script.`);
+
+for(let i = 0; i < process.argv.length; i++) {
+    console.log(process.argv[i]);
+}

@@ -6,7 +6,7 @@
 * Just as for inheritance, if a module sends a message, e.g. `lead_days`, then it must implement the method.
 * Modules also use the template method pattern and invite objects to provide specializations/overrides.
 * The methods of the last include, i.e. the last module, are encountered first in the look up chain
-* Extending a class with a module creates class methods in taht class and extending an instance of a class with a module creates instance methods in that instance.
+* Extending a class with a module creates class methods in that class and extending an instance of a class with a module creates instance methods in that instance.
 * Method lookup:
     1. Methods defined in this one instance of `ClassTwo`, i.e. `another_method`
     2. Methods defined in modules that this one instance of `ClassTwo` has been extended with, i.e. `module_six`

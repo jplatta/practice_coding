@@ -10,6 +10,15 @@
 * Run the file from the local directory `$ ./hello`
 * Add the directory your `PATH` to run the file globally:
     * Add the following to your bash profile: `$ export PATH="$PATH:/path/to/dir"`
+* Pass arguments to your ruby script:
+```t
+$ ./ruby_script arg1 arg2 arg3 arg4
+```
+* Get arguments passed to the script using the `ARGV` environment constant:
+```ruby
+#!/usr/bin/env ruby
+ARGV.each do { |arg| puts arg }
+```
 * Hello world exammple:  
 
 ```bash
