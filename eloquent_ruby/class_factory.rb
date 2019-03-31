@@ -21,18 +21,18 @@ class Polygon
 end
 
 class Picture
-    attr_reader :shapes, :shape_class
-  
-    def initialize(shape_class, points)
-      @shapes = []
-      @shape_class = shape_class
-      @shapes << create_shape(points)
-    end
-  
-    def create_shape(points)
-      @shape_class.new(points)
-    end
+  attr_reader :shapes, :shape_class
+
+  def initialize(shape_class, points)
+    @shapes = []
+    @shape_class = shape_class
+    @shapes << create_shape(points)
   end
+
+  def create_shape(points)
+    @shape_class.new(points)
+  end
+end
 
 a_beautiful_monet = Picture.new(Triangle, [1,5,6])
 
