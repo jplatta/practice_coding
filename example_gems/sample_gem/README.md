@@ -9,7 +9,7 @@ Helpful links: [gem structure](https://guides.rubygems.org/what-is-a-gem/) and [
 * gemspec contains info about the gem
 
 ## Basic steps for creating a gem - LONG
-1. Create the `gemspec` file at the root: `gem_name.gemspec` 
+1. Create the `gemspec` file at the root: `gem_name.gemspec`
 2. Create the `lib` folder
 3. In the `lib` folder create the ruby file: `gem_name.rb`
 4. Edit the gemspec with details about the gem
@@ -18,7 +18,7 @@ Helpful links: [gem structure](https://guides.rubygems.org/what-is-a-gem/) and [
 7. Require gem: `require 'gem_name'`
 8. Start using gem
 
-## Basis steps - SHORT
+## Basic steps - SHORT
 1. `$ bundle gem new_gem_name`
 2. Update the `gemspec` file generated in step 1
-3. 
+3.
